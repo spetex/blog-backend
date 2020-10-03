@@ -2,9 +2,13 @@
 
 source 'https://rubygems.org'
 
+gem 'dry-system'
 gem 'pg'
 gem 'roda'
+gem 'rom'
+gem 'rom-sql'
 gem 'sequel'
+gem 'sqlite3'
 
 group :development do
   gem 'guard'

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require './src/server'
+require_relative './app'
 
-run BlogApp
+run Blog::BlogApp
