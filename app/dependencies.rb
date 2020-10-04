@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 require 'dry/system/container'
-require 'rom'
 
 module Blog
   class Dependencies < Dry::System::Container
     boot(:rom) do |container|
       init do
-        require 'app/persistence'
-        container.register(:rom, Blog::Persistence.init)
+        require 'app/persistence/config'
+
+        config = Blog::Persistence.init
+        config.auto_registration(
+          File.join(APP_ROOT, 'app/persistence/'),
+          namespace: 'Blog::Persistence'
+        )
+        container.register(:rom, ROM.container(config))
       end
     end
 
