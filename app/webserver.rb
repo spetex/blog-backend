@@ -8,7 +8,6 @@ module Blog
   # Main Roda Server Class:
   # Here you can find all of the defined routes and its controllers.
   class BlogApp < Roda
-    Dependencies.start(:rom)
     Dependencies.start(:repository)
     include Import[:repository]
 
